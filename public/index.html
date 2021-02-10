@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Tiktok Viewer</title>
+    <link rel="stylesheet" href="styles.css" >
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <div class="content">
+          <img src="https://p16-amd-va.tiktokcdn.com/tiktok-obj/1613746256880653~c5_300x300.jpeg?x-expires=1611825100&x-signature=tbaSNnqLkECsb8u4OQwxsdcsPRO%3D" alt="Foto de perfil do tiktok" />
+
+          <div class="info-container">
+            <p><strong>Username:</strong></p>
+            <p><strong>Name:</strong></p>
+            <p><strong>Description:</strong></p>
+            <p><strong>Followers:</strong></p>
+            <p><strong>Following:</strong></p>
+            <p><strong>Likes:</strong></p>
+          </div>
+        </div>
+
+        <form>
+          <input class="search-user_input" type="text" placeholder="Search user" />
+          <button type="submit" class="search-button">Search</button>
+        </form>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    (() => {
+      const input = document.querySelector('input.search-user_input');
+      const button = document.querySelector('button.search-button');
+
+      button.addEventListener('click', async (e) => {
+        try {
+          e.preventDefault();
+
+          const inputValue = input.value;
+          if (inputValue.length <= 2) return;
+
+          const response = await fetch(`http://localhost:3333/${inputValue.toLowerCase().replace(' ', '')}`);
+          const data = await response.json();
+
+          const htmlData = Array(data).map(item =>
+            `
+          <img src="${item.generalInformation.image_url}" alt="Foto de perfil do tiktok" />
+
+          <div class="info-container">
+            <p><strong>Username:</strong> ${item.generalInformation.username}</p>
+            <p><strong>Name:</strong> ${item.generalInformation.name}</p>
+            <p><strong>Description:</strong> ${item.generalInformation.description}</p>
+            <p><strong>Followers:</strong> ${item.generalInformation.followers}</p>
+            <p><strong>Following:</strong> ${item.generalInformation.following}</p>
+            <p><strong>Likes:</strong> ${item.generalInformation.likes}</p>
+          </div>
+        `
+          );
+
+          return document.querySelector('.content').innerHTML = htmlData;
+        } catch {
+          return alert('Profile not found');
+        }
+      });
+    })();
+  </script>
+</html>
