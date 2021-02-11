@@ -6,7 +6,6 @@
 
 html, body {
   font-family: 'Poppins', sans-serif;
-  background: #f7f5f5;
 }
 
 .container p {
@@ -14,63 +13,79 @@ html, body {
 }
 
 .container form {
-  margin: 30px 0 30px;
   display: flex;
   align-items: center;
   justify-content: center;
-}
 
-.container form input, .container form button {
-  padding: 10px;
-  margin-top: 20px;
-
-  outline: 0;
+  margin-top: 10px;
 }
 
 .container form input {
-  margin-right: 5px;
-  width: 240px;
+  width: 15%;
+  padding: 15px;
 
-  background: #e8e8e8;
-  color: #616161;
+  outline: 0;
 
-  border-radius: 10px;
+  font-size: 1.1rem;
   border: none;
+  background: #fcfafa;
 }
 
 .container form button {
-  cursor: pointer;
-  border: none;
+  padding: 15px;
 
-  transition: background 400ms;
+  font-size: 1.1rem;
+  border: none;
+  cursor: pointer;
+  outline: 0;
+
+  background: #eee;
+  transition: background 200ms;
 }
 
 .container form button:hover {
-  background: #e8e8e8;
+  background: #e0e0e0;
 }
 
 .content {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  padding: 80px;
+  margin-top: 4%;
 }
 
-.content img {
+.profile-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.profile-container img {
   border-radius: 50%;
+
   width: 240px;
   height: 240px;
 
-  display: flex;
-  align-items: center;
+  margin-top: 15px;
+}
 
-  margin-top: 13%;
+.profile-container a {
+  color: #000;
+
+  transition: color 200ms;
+}
+
+.profile-container a:hover {
+  color: #7d7d7d;
 }
 
 .info-container {
   display: flex;
   flex-direction: column;
 
-  margin-top: 13%;
+  margin-top: 40px;
   margin-left: 20px;
 }
 
@@ -78,3 +93,4 @@ html, body {
   font-size: 1.4rem;
   line-height: 20px;
 }
+

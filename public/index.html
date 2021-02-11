@@ -10,7 +10,10 @@
     <div class="wrapper">
       <div class="container">
         <div class="content">
-          <img src="https://p16-amd-va.tiktokcdn.com/tiktok-obj/1613746256880653~c5_300x300.jpeg?x-expires=1611825100&x-signature=tbaSNnqLkECsb8u4OQwxsdcsPRO%3D" alt="Foto de perfil do tiktok" />
+          <div class="profile-container">
+            <a href="">Go to Tiktok Profile</a>
+            <img src="https://p16-amd-va.tiktokcdn.com/tiktok-obj/1613746256880653~c5_300x300.jpeg?x-expires=1611825100&x-signature=tbaSNnqLkECsb8u4OQwxsdcsPRO%3D" alt="Foto de perfil do tiktok" />
+          </div>
 
           <div class="info-container">
             <p><strong>Username:</strong></p>
@@ -47,7 +50,10 @@
 
           const htmlData = Array(data).map(item =>
             `
-          <img src="${item.generalInformation.image_url}" alt="Tiktok profile picture" />
+          <div class="profile-container">
+            <a target="_blank" href="https://www.tiktok.com/@${inputValue.toLowerCase().replace(' ', '')}" rel=”noopener noreferrer”>Go to Tiktok Profile</a>
+            <img src="${item.generalInformation.image_url}" alt="Tiktok profile picture" />
+          </div>
 
           <div class="info-container">
             <p><strong>Username:</strong> ${item.generalInformation.username}</p>
